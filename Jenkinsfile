@@ -7,10 +7,12 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/Welington98/jk-public-gh.git'
             }
         }
+    }
         stage('Building Image') {
             steps {
                 sh 'docker build -t webapp:${BUILD_NUMBER} .'
             }
+        }
         stage('Deploying Application') {
             steps {
                 sh '''
